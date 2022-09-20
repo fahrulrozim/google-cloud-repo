@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  main-py:
+    container_name: 'python-upload'
+    build:
+      context: .
+      network: host
+    #restart: on-failure
