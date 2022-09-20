@@ -2,13 +2,14 @@ import os
 from google.cloud import storage
 import requests
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'psychic-force-362917-f897bf215a19.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.path.join(os.getcwd(), 'google-cloud-credentials.json')
+print(os.environ)
 storage_client = storage.Client()
 
 # Create a new bucket
 def create_new_bucket(bucket_name):
     bucket = storage_client.bucket(bucket_name)
-    bucket.location = 'US'
+    bucket.location = 'EU'
     bucket = storage_client.create_bucket(bucket)
     return bucket
 
